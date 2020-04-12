@@ -60,6 +60,12 @@ public class Youtube {
         youtubeService = retrofit.create(YoutubeService.class);
     }
 
+    /**
+     * Search for a youtube channel
+     *
+     * @param channelName The youtube channel you want to search for
+     * @param callback    call back to handle data recieved from network call
+     */
     public void searchForChannel(String channelName, Callback<ChannelSearchResponse> callback) {
         youtubeService.channelSearchResponse(channelName).enqueue(callback);
     }
