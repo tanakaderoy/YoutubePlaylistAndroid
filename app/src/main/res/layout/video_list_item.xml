@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="4dp"
+    android:layout_marginBottom="4dp">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="4dp">
+
+        <ImageView
+            android:id="@+id/videoListImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp" />
+
+        <TextView
+            android:id="@+id/videoListNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="14dp"
+            android:layout_toEndOf="@id/videoListImageView"
+            android:text="TextView"
+            android:textSize="20sp" />
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/videoListUploadDateTextView"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_below="@+id/videoListNameTextView"-->
+        <!--            android:layout_alignParentEnd="true"-->
+        <!--            android:layout_marginTop="9dp"-->
+        <!--            android:layout_marginEnd="6dp"-->
+        <!--            android:text="TextView" />-->
+
+        <TextView
+            android:id="@+id/videoListDescriptionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/videoListNameTextView"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="40dp"
+            android:autoLink="web"
+            android:text="TextView" />
+
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
