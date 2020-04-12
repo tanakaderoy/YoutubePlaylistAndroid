@@ -17,10 +17,10 @@ public interface YoutubeService {
     @GET("search?part=snippet&maxResults=10&type=channel")
     Call<ChannelSearchResponse> channelSearchResponse(@Query("q") String q);
 
-    @GET("playlists?part=snippet%2CcontentDetails&maxResults=20")
+    @GET("playlists?part=snippet%2CcontentDetails&maxResults=50")
     Call<PlaylistResponse> playlistResponse(@Query("channelId") String channelId);
 
-    @GET("playlistItems?part=snippet%2CcontentDetails")
+    @GET("playlistItems?part=snippet%2CcontentDetails&maxResults=50")
     Call<PlaylistItemListResponse> playlistItemResponse(@Query("playlistId") String playlistId);
 
 }

@@ -70,10 +70,21 @@ public class Youtube {
         youtubeService.channelSearchResponse(channelName).enqueue(callback);
     }
 
+    /**
+     * Search for playlists on a particular channel using ChannelID
+     *
+     * @param channelId The youtube channelId
+     * @param callback  callback to handle data received
+     */
     public void searchForPlayList(String channelId, Callback<PlaylistResponse> callback) {
         youtubeService.playlistResponse(channelId).enqueue(callback);
     }
 
+    /**
+     * Get the videos in a given playlist
+     * @param playlistId the playlist id
+     * @param callback callback
+     */
     public void searchForPlaylistItem(String playlistId, Callback<PlaylistItemListResponse> callback) {
         youtubeService.playlistItemResponse(playlistId).enqueue(callback);
     }
