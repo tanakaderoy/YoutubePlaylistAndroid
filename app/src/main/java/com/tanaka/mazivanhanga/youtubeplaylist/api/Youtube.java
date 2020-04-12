@@ -17,8 +17,8 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.tanaka.mazivanhanga.youtubeplaylist.utils.Constants.APIKEY;
 import static com.tanaka.mazivanhanga.youtubeplaylist.utils.Constants.BASEURL;
+import static com.tanaka.mazivanhanga.youtubeplaylist.utils.Constants.LETMEINNNNNNN;
 
 public class Youtube {
     private YoutubeService youtubeService;
@@ -43,7 +43,7 @@ public class Youtube {
             @Override
             public okhttp3.Response intercept(Chain chain) throws IOException {
                 Request request = chain.request();
-                HttpUrl url = request.url().newBuilder().addQueryParameter("key", APIKEY).build();
+                HttpUrl url = request.url().newBuilder().addQueryParameter("key", LETMEINNNNNNN).build();
                 request = request.newBuilder().url(url).build();
                 return chain.proceed(request);
             }

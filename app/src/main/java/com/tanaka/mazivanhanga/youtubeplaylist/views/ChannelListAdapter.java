@@ -78,14 +78,14 @@ public class ChannelListAdapter extends RecyclerView.Adapter<ChannelListAdapter.
         notifyDataSetChanged();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        public ImageView channelImageView;
-        public TextView channelNameTextView;
-        public String channelId;
-        public int uploadCount;
-        public String channelImageUrl;
+    static class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView channelImageView;
+        TextView channelNameTextView;
+        String channelId;
+        int uploadCount;
+        String channelImageUrl;
 
-        public ViewHolder(@NonNull View itemView) {
+        ViewHolder(@NonNull View itemView) {
             super(itemView);
             channelImageView = itemView.findViewById(R.id.channelListChannelImageView);
             channelNameTextView = itemView.findViewById(R.id.channelListChannelNameTextView);

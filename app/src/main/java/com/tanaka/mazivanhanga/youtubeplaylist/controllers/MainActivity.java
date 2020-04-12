@@ -3,6 +3,7 @@ package com.tanaka.mazivanhanga.youtubeplaylist.controllers;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -38,6 +39,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setUpViews();
+    }
+
+    private void setUpViews() {
         channelListItems = new ArrayList<>();
         recyclerView = findViewById(R.id.channelListRecyclerView);
         recyclerView.setHasFixedSize(true);
@@ -46,8 +51,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
         progDialog = new ProgDialog(this);
-
-
     }
 
     @Override
@@ -96,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                         channelListItems = (ArrayList<ChannelListItem>) channel.getItems().stream().map((item -> new ChannelListItem(item.getSnippet().getThumbnails().getHigh().getUrl(), item.getSnippet().getTitle(), item.getSnippet().getChannelId(), 200))).collect(Collectors.toList());
                         System.out.println(channelListItems);
                         adapter.replace(channelListItems);
-
+                        Log.i("NETWORK", "<-- Success: " + call.request().toString());
 
                     });
                 }

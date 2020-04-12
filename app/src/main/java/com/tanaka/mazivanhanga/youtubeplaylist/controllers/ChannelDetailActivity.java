@@ -3,6 +3,7 @@ package com.tanaka.mazivanhanga.youtubeplaylist.controllers;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -42,6 +43,26 @@ public class ChannelDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_channel_detail);
+        setUpIntents();
+        setUpViews();
+        loadData(channelId);
+
+    }
+
+    /**
+     * Set up the intents
+     */
+    private void setUpIntents() {
+        channelId = getIntent().getStringExtra(CHANNEL_ID);
+        channelName = getIntent().getStringExtra(CHANNEL_NAME);
+        channelImage = getIntent().getStringExtra(CHANNEL_IMAGE);
+        uploadCount = getIntent().getIntExtra(UPLOAD_COUNT, 0);
+    }
+
+    /**
+     * Set the views and such
+     */
+    private void setUpViews() {
         recyclerView = findViewById(R.id.playlistListRecyclerView);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
@@ -49,21 +70,17 @@ public class ChannelDetailActivity extends AppCompatActivity {
         adapter = new PlaylistListAdapter(playlistListItems);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
-        channelId = getIntent().getStringExtra(CHANNEL_ID);
-        channelName = getIntent().getStringExtra(CHANNEL_NAME);
-        channelImage = getIntent().getStringExtra(CHANNEL_IMAGE);
-        uploadCount = getIntent().getIntExtra(UPLOAD_COUNT, 0);
-//        getActionBar().setDisplayHomeAsUpEnabled(true);
-//        getActionBar().setTitle(channelName);
         getSupportActionBar().setTitle(channelName);
         progressDialog = new ProgDialog(this);
-
-        progressDialog.show();
-        loadData(channelId);
-
     }
 
+    /**
+     * Load the detail for a channels playlists
+     *
+     * @param channelId channelId to search using
+     */
     private void loadData(String channelId) {
+        progressDialog.show();
         Youtube.getInstance().searchForPlayList(channelId, new Callback<PlaylistResponse>() {
             @Override
             public void onResponse(Call<PlaylistResponse> call, Response<PlaylistResponse> response) {
@@ -79,12 +96,13 @@ public class ChannelDetailActivity extends AppCompatActivity {
                     String channelPlaylistId = channelId.replaceAll("UC", "UU");
                     listItems.add(0, new PlaylistListItem(channelName + " Uploads", channelImage, uploadCount, channelPlaylistId));
                     new Handler(Looper.getMainLooper()).post(() -> adapter.add(listItems));
+                    Log.i("NETWORK", "Success: " + call);
                 }
             }
 
             @Override
             public void onFailure(Call<PlaylistResponse> call, Throwable t) {
-
+                Log.e("Error", t.toString());
             }
         });
     }

@@ -6,8 +6,8 @@ import android.content.Context;
 import static com.tanaka.mazivanhanga.youtubeplaylist.utils.Constants.LOADING;
 
 public class ProgDialog {
-    ProgressDialog progressDialog;
-    Context context;
+    private ProgressDialog progressDialog;
+    private Context context;
 
     public ProgDialog(Context context) {
         this.context = context;

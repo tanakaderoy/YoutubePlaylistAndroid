@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.ViewHolder> {
 
-    ArrayList<VideoListItem> videoListItems;
+    private ArrayList<VideoListItem> videoListItems;
 
     public VideoListAdapter(ArrayList<VideoListItem> videoListItems) {
         this.videoListItems = videoListItems;
@@ -60,12 +60,12 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.View
         notifyDataSetChanged();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    static class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView thumbnail;
         private String videoUrl;
         private TextView videoTitleTextView, videoDescriptionTextView;
 
-        public ViewHolder(@NonNull View itemView) {
+        ViewHolder(@NonNull View itemView) {
             super(itemView);
             thumbnail = itemView.findViewById(R.id.videoListImageView);
             videoTitleTextView = itemView.findViewById(R.id.videoListNameTextView);

@@ -19,9 +19,10 @@ import com.tanaka.mazivanhanga.youtubeplaylist.models.PlaylistListItem;
 import java.util.ArrayList;
 
 import static com.tanaka.mazivanhanga.youtubeplaylist.utils.Constants.PLAYLIST_ID;
+import static com.tanaka.mazivanhanga.youtubeplaylist.utils.Constants.PLAYLIST_NAME;
 
 public class PlaylistListAdapter extends RecyclerView.Adapter<PlaylistListAdapter.ViewHolder> {
-    ArrayList<PlaylistListItem> playlistListItems;
+    private ArrayList<PlaylistListItem> playlistListItems;
 
     public PlaylistListAdapter(ArrayList<PlaylistListItem> playlistListItems) {
         this.playlistListItems = playlistListItems;
@@ -61,19 +62,20 @@ public class PlaylistListAdapter extends RecyclerView.Adapter<PlaylistListAdapte
     }
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        public ImageView playlistThumbImageView;
-        public TextView playlistTitleTextView;
-        public TextView playlistCountTextView;
-        public String playlistId;
+    class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView playlistThumbImageView;
+        TextView playlistTitleTextView;
+        TextView playlistCountTextView;
+        String playlistId;
 
-        public ViewHolder(@NonNull View itemView) {
+        ViewHolder(@NonNull View itemView) {
             super(itemView);
             playlistCountTextView = itemView.findViewById(R.id.playlistListCountTextView);
             playlistThumbImageView = itemView.findViewById(R.id.playlistListPlaylistImageView);
             playlistTitleTextView = itemView.findViewById(R.id.playlistListPlaylistNameTextView);
             itemView.setOnClickListener(v -> {
                 Intent intent = new Intent(itemView.getContext(), VideoListActivity.class);
+                intent.putExtra(PLAYLIST_NAME, playlistTitleTextView.getText());
                 intent.putExtra(PLAYLIST_ID, playlistId);
                 itemView.getContext().startActivity(intent);
             });
