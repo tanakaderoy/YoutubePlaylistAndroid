@@ -24,7 +24,7 @@ public class Constants {
      * @param coded string
      * @return decoded string
      */
-    private static String de64It(String coded) {
+    private static String base64Decode(String coded) {
         byte[] valueDecoded;
         valueDecoded = Base64.decode(coded.getBytes(StandardCharsets.UTF_8), Base64.DEFAULT);
         return new String(valueDecoded);
