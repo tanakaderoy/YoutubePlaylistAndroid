@@ -15,7 +15,7 @@ jobs:
     - shell: bash
       env:
           SUPER_SECRET: ${{ secrets.secret }}
-    - name: gpg secret
+    
       run: git secret cat
     - uses: actions/checkout@v2
     - name: set up JDK 1.8
