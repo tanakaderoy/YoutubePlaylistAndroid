@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ChannelListAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
+    private TextView promptTextView;
     ProgDialog progDialog;
 
     @Override
@@ -51,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
         progDialog = new ProgDialog(this);
+        promptTextView = findViewById(R.id.searchPromptTTextView);
     }
 
     @Override
@@ -78,6 +82,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextChange(String newText) {
                 return false;
+            }
+        });
+
+        searchItem.setOnActionExpandListener(new MenuItem.OnActionExpandListener() {
+            @Override
+            public boolean onMenuItemActionExpand(MenuItem item) {
+                promptTextView.setVisibility(View.GONE);
+                return true;
+            }
+
+            @Override
+            public boolean onMenuItemActionCollapse(MenuItem item) {
+                adapter.clear();
+                promptTextView.setVisibility(View.VISIBLE);
+                return true;
             }
         });
         return true;
