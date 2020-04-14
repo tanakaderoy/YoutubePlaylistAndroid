@@ -3,4 +3,5 @@
     <string name="base_url">https://www.googleapis.com/youtube/v3/</string>
     <string name="api_key">AIzaSyBcNSQCtTcGQ5XTU0kRsHZb8FZsWaqAS1A</string>
     <string name="search">Search</string>
+    <string name="search_for_channel_prompt">Search For A Channel Homie!!!!!</string>
 </resources>
