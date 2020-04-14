@@ -14,6 +14,7 @@ public class Constants {
     public static final String CHANNEL_NAME = "channelName";
     public static final String CHANNEL_IMAGE = "channelImage";
     public static final String UPLOAD_COUNT = "uploadCount";
+    public static final String SCROLL_TO = "com.tanaka.mazivanhanga.youtubeplaylist.scrollToIntent";
 
     /**
      * Takes in an base64encoded string and outputs the decoded string value

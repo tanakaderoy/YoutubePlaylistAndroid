@@ -1,11 +1,17 @@
 package com.tanaka.mazivanhanga.youtubeplaylist.controllers;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -27,6 +33,7 @@ import retrofit2.Response;
 
 import static com.tanaka.mazivanhanga.youtubeplaylist.utils.Constants.PLAYLIST_ID;
 import static com.tanaka.mazivanhanga.youtubeplaylist.utils.Constants.PLAYLIST_NAME;
+import static com.tanaka.mazivanhanga.youtubeplaylist.utils.Constants.SCROLL_TO;
 
 public class VideoListActivity extends AppCompatActivity {
     ProgDialog progressDialog;
@@ -43,7 +50,24 @@ public class VideoListActivity extends AppCompatActivity {
         setUpIntents();
         setUpViews();
         loadData();
+        LocalBroadcastManager.getInstance(this).registerReceiver(messageReceiver, new IntentFilter(SCROLL_TO));
+    }
 
+    private BroadcastReceiver messageReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            int position = intent.getIntExtra("position", 0);
+            Toast.makeText(context, "Yurrrr", Toast.LENGTH_SHORT).show();
+            recyclerView.scrollToPosition(position);
+            //  ... react to local broadcast message
+        }
+    };
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(messageReceiver);
     }
 
     private void setUpViews() {
