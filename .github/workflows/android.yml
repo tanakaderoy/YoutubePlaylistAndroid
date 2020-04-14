@@ -15,9 +15,9 @@ jobs:
     - shell: bash
       env:
           SUPER_SECRET: ${{ secrets.secret }}
-      run: echo "deb https://dl.bintray.com/sobolevn/deb git-secret main" | sudo tee -a /etc/apt/sources.list
-           wget -qO - https://api.bintray.com/users/sobolevn/keys/gpg/public.key | sudo apt-key add -
-           sudo apt-get update && sudo apt-get install git-secret
+      run: brew install git-secret
+
+
     - uses: actions/checkout@v2
     - name: set up JDK 1.8
       uses: actions/setup-java@v1
