@@ -7,6 +7,10 @@ import com.tanaka.mazivanhanga.youtubeplaylist.models.PlaylistResponse;
 
 import java.io.IOException;
 
+import io.reactivex.SingleObserver;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -38,15 +42,17 @@ public class Youtube {
         setUpRetrofit();
     }
 
+    public Youtube( Retrofit retrofit){
+
+        this.youtubeService = retrofit.create(YoutubeService.class);
+    }
+
     private void setUpRetrofit() {
-        client = new OkHttpClient().newBuilder().addInterceptor(new Interceptor() {
-            @Override
-            public okhttp3.Response intercept(Chain chain) throws IOException {
-                Request request = chain.request();
-                HttpUrl url = request.url().newBuilder().addQueryParameter("key", LETMEINNNNNNN).build();
-                request = request.newBuilder().url(url).build();
-                return chain.proceed(request);
-            }
+        client = new OkHttpClient().newBuilder().addInterceptor(chain -> {
+            Request request = chain.request();
+            HttpUrl url = request.url().newBuilder().addQueryParameter("key", LETMEINNNNNNN).build();
+            request = request.newBuilder().url(url).build();
+            return chain.proceed(request);
         }).addInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC)).build();
 
 
@@ -59,34 +65,37 @@ public class Youtube {
 
         youtubeService = retrofit.create(YoutubeService.class);
     }
+    public YoutubeService getYoutubeService(){
+        return youtubeService;
+    }
 
     /**
      * Search for a youtube channel
      *
      * @param channelName The youtube channel you want to search for
-     * @param callback    call back to handle data recieved from network call
+     * @param channelSearchResponseSingleObserver observer
      */
-    public void searchForChannel(String channelName, Callback<ChannelSearchResponse> callback) {
-        youtubeService.channelSearchResponse(channelName).enqueue(callback);
+    public void searchForChannel(String channelName, SingleObserver<ChannelSearchResponse> channelSearchResponseSingleObserver) {
+        youtubeService.channelSearchResponse(channelName).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(channelSearchResponseSingleObserver);
     }
 
     /**
      * Search for playlists on a particular channel using ChannelID
      *
      * @param channelId The youtube channelId
-     * @param callback  callback to handle data received
+     * @param playlistConsumer  observer to handle data received
      */
-    public void searchForPlayList(String channelId, Callback<PlaylistResponse> callback) {
-        youtubeService.playlistResponse(channelId).enqueue(callback);
+    public void searchForPlayList(String channelId, SingleObserver<PlaylistResponse> playlistConsumer) {
+        youtubeService.playlistResponse(channelId).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(playlistConsumer);
     }
 
     /**
      * Get the videos in a given playlist
      * @param playlistId the playlist id
-     * @param callback callback
+     * @param playlistItemListResponseConsumer observer
      */
-    public void searchForPlaylistItem(String playlistId, Callback<PlaylistItemListResponse> callback) {
-        youtubeService.playlistItemResponse(playlistId).enqueue(callback);
+    public void searchForPlaylistItem(String playlistId, SingleObserver<PlaylistItemListResponse> playlistItemListResponseConsumer) {
+        youtubeService.playlistItemResponse(playlistId).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(playlistItemListResponseConsumer);
     }
 
 }

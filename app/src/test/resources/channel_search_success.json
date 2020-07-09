@@ -1,0 +1,292 @@
+{
+  "kind": "youtube#searchListResponse",
+  "etag": "aTtG5Ylnbfgr0_h9kw1_fQb8E6A",
+  "nextPageToken": "CAoQAA",
+  "regionCode": "US",
+  "pageInfo": {
+    "totalResults": 637,
+    "resultsPerPage": 10
+  },
+  "items": [
+    {
+      "kind": "youtube#searchResult",
+      "etag": "Vwa6TVIiv701FRHI0V-wh93NBbQ",
+      "id": {
+        "kind": "youtube#channel",
+        "channelId": "UC6-ymYjG0SU0jUWnWh9ZzEQ"
+      },
+      "snippet": {
+        "publishedAt": "2013-06-03T22:58:05Z",
+        "channelId": "UC6-ymYjG0SU0jUWnWh9ZzEQ",
+        "title": "Wisecrack",
+        "description": "Wisecrack is a collective of academics, filmmakers, artists, and pop culture junkies who are curious and contemplative about the world around us. Our channel ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://yt3.ggpht.com/--Oq7OaQQnIo/AAAAAAAAAAI/AAAAAAAAAAA/nIJsg_cy0J4/s88-c-k-no-mo-rj-c0xffffff/photo.jpg"
+          },
+          "medium": {
+            "url": "https://yt3.ggpht.com/--Oq7OaQQnIo/AAAAAAAAAAI/AAAAAAAAAAA/nIJsg_cy0J4/s240-c-k-no-mo-rj-c0xffffff/photo.jpg"
+          },
+          "high": {
+            "url": "https://yt3.ggpht.com/--Oq7OaQQnIo/AAAAAAAAAAI/AAAAAAAAAAA/nIJsg_cy0J4/s800-c-k-no-mo-rj-c0xffffff/photo.jpg"
+          }
+        },
+        "channelTitle": "Wisecrack",
+        "liveBroadcastContent": "none",
+        "publishTime": "2013-06-03T22:58:05Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "vWNDcj04PkZ-F5ywUOcgDpHKEYg",
+      "id": {
+        "kind": "youtube#channel",
+        "channelId": "UCnEYqkcIBtliTPK1bls2NBw"
+      },
+      "snippet": {
+        "publishedAt": "2017-10-15T22:04:34Z",
+        "channelId": "UCnEYqkcIBtliTPK1bls2NBw",
+        "title": "WISECASTS by Wisecrack",
+        "description": "Welcome to WISECASTS by Wisecrack. This is our exclusive channel for video versions of our popular podcasts, including: – Wisecrack's THE SQUANCH: A ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://yt3.ggpht.com/-oO3GS4vm-uU/AAAAAAAAAAI/AAAAAAAAAAA/rNfdYmIfPeg/s88-c-k-no-mo-rj-c0xffffff/photo.jpg"
+          },
+          "medium": {
+            "url": "https://yt3.ggpht.com/-oO3GS4vm-uU/AAAAAAAAAAI/AAAAAAAAAAA/rNfdYmIfPeg/s240-c-k-no-mo-rj-c0xffffff/photo.jpg"
+          },
+          "high": {
+            "url": "https://yt3.ggpht.com/-oO3GS4vm-uU/AAAAAAAAAAI/AAAAAAAAAAA/rNfdYmIfPeg/s800-c-k-no-mo-rj-c0xffffff/photo.jpg"
+          }
+        },
+        "channelTitle": "WISECASTS by Wisecrack",
+        "liveBroadcastContent": "none",
+        "publishTime": "2017-10-15T22:04:34Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "4Z-65NtcjiMTja9Av47fU2Ppwak",
+      "id": {
+        "kind": "youtube#channel",
+        "channelId": "UC3c9Gzqg6wF90E90RtIaYAQ"
+      },
+      "snippet": {
+        "publishedAt": "2014-09-29T03:37:38Z",
+        "channelId": "UC3c9Gzqg6wF90E90RtIaYAQ",
+        "title": "WISECRACK",
+        "description": "Catch early previews of upcoming episodes of your favorite Wisecrack shows – Earthling Cinema, 8-Bit Philosophy, Thug Notes and Wisecrack Edition.",
+        "thumbnails": {
+          "default": {
+            "url": "https://yt3.ggpht.com/-7EBQZ-4uZRY/AAAAAAAAAAI/AAAAAAAAAAA/fxZK_lkuIns/s88-c-k-no-mo-rj-c0xffffff/photo.jpg"
+          },
+          "medium": {
+            "url": "https://yt3.ggpht.com/-7EBQZ-4uZRY/AAAAAAAAAAI/AAAAAAAAAAA/fxZK_lkuIns/s240-c-k-no-mo-rj-c0xffffff/photo.jpg"
+          },
+          "high": {
+            "url": "https://yt3.ggpht.com/-7EBQZ-4uZRY/AAAAAAAAAAI/AAAAAAAAAAA/fxZK_lkuIns/s800-c-k-no-mo-rj-c0xffffff/photo.jpg"
+          }
+        },
+        "channelTitle": "WISECRACK",
+        "liveBroadcastContent": "none",
+        "publishTime": "2014-09-29T03:37:38Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "c6QsYyKOG6zX5R41LxA56jF2Zu0",
+      "id": {
+        "kind": "youtube#channel",
+        "channelId": "UCu6DDGoV21YhwSb5iWbriAw"
+      },
+      "snippet": {
+        "publishedAt": "2018-07-30T22:16:45Z",
+        "channelId": "UCu6DDGoV21YhwSb5iWbriAw",
+        "title": "Alien's Guide",
+        "description": "Welcome to ALIEN'S GUIDE, the new home of Wisecrack's EARTHLING CINEMA and all things Garyx Wormuloid. Subscribe to catch new and old episodes of ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://yt3.ggpht.com/-dGJJe54oK9Y/AAAAAAAAAAI/AAAAAAAAAAA/img8sqLnRzU/s88-c-k-no-mo-rj-c0xffffff/photo.jpg"
+          },
+          "medium": {
+            "url": "https://yt3.ggpht.com/-dGJJe54oK9Y/AAAAAAAAAAI/AAAAAAAAAAA/img8sqLnRzU/s240-c-k-no-mo-rj-c0xffffff/photo.jpg"
+          },
+          "high": {
+            "url": "https://yt3.ggpht.com/-dGJJe54oK9Y/AAAAAAAAAAI/AAAAAAAAAAA/img8sqLnRzU/s800-c-k-no-mo-rj-c0xffffff/photo.jpg"
+          }
+        },
+        "channelTitle": "Alien's Guide",
+        "liveBroadcastContent": "upcoming",
+        "publishTime": "2018-07-30T22:16:45Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "MrBxwCT7-VTS6HZgXlhyC4pd0IQ",
+      "id": {
+        "kind": "youtube#channel",
+        "channelId": "UChRSyzZ7YmfcYNzlq1jy2bw"
+      },
+      "snippet": {
+        "publishedAt": "2018-08-05T14:03:41Z",
+        "channelId": "UChRSyzZ7YmfcYNzlq1jy2bw",
+        "title": "Wisecrack - Topic",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://yt3.ggpht.com/-IY5B3oMUMJY/AAAAAAAAAAI/AAAAAAAAAAA/FOZIaIgpXO0/s88-c-k-no-mo-rj-c0xffffff/photo.jpg"
+          },
+          "medium": {
+            "url": "https://yt3.ggpht.com/-IY5B3oMUMJY/AAAAAAAAAAI/AAAAAAAAAAA/FOZIaIgpXO0/s240-c-k-no-mo-rj-c0xffffff/photo.jpg"
+          },
+          "high": {
+            "url": "https://yt3.ggpht.com/-IY5B3oMUMJY/AAAAAAAAAAI/AAAAAAAAAAA/FOZIaIgpXO0/s800-c-k-no-mo-rj-c0xffffff/photo.jpg"
+          }
+        },
+        "channelTitle": "Wisecrack - Topic",
+        "liveBroadcastContent": "none",
+        "publishTime": "2018-08-05T14:03:41Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "E8bBJKCGTu4UxUkQi4WMQEOUStc",
+      "id": {
+        "kind": "youtube#channel",
+        "channelId": "UCHFh_Jtey9noLIYRd2mvbfQ"
+      },
+      "snippet": {
+        "publishedAt": "2013-08-02T04:51:07Z",
+        "channelId": "UCHFh_Jtey9noLIYRd2mvbfQ",
+        "title": "wisecrack",
+        "description": "good stuff.",
+        "thumbnails": {
+          "default": {
+            "url": "https://yt3.ggpht.com/-KlB5fpetDg8/AAAAAAAAAAI/AAAAAAAAAAA/9mEsNe2eBa8/s88-c-k-no-mo-rj-c0xffffff/photo.jpg"
+          },
+          "medium": {
+            "url": "https://yt3.ggpht.com/-KlB5fpetDg8/AAAAAAAAAAI/AAAAAAAAAAA/9mEsNe2eBa8/s240-c-k-no-mo-rj-c0xffffff/photo.jpg"
+          },
+          "high": {
+            "url": "https://yt3.ggpht.com/-KlB5fpetDg8/AAAAAAAAAAI/AAAAAAAAAAA/9mEsNe2eBa8/s800-c-k-no-mo-rj-c0xffffff/photo.jpg"
+          }
+        },
+        "channelTitle": "wisecrack",
+        "liveBroadcastContent": "none",
+        "publishTime": "2013-08-02T04:51:07Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "VkPXSADsPyFu-Hy8Atw9t3oKc6k",
+      "id": {
+        "kind": "youtube#channel",
+        "channelId": "UCLqQKf6CY4kvB0Sx2PqAXOQ"
+      },
+      "snippet": {
+        "publishedAt": "2020-02-14T18:36:10Z",
+        "channelId": "UCLqQKf6CY4kvB0Sx2PqAXOQ",
+        "title": "WiseCrack Studios",
+        "description": "Welcome to the WiseCrack Studios YouTube Channel! You'll be able to find production advice videos and the occasional new song here.",
+        "thumbnails": {
+          "default": {
+            "url": "https://yt3.ggpht.com/-TIBwBEsUWx8/AAAAAAAAAAI/AAAAAAAAAAA/Cg9oV1xb-8w/s88-c-k-no-mo-rj-c0xffffff/photo.jpg"
+          },
+          "medium": {
+            "url": "https://yt3.ggpht.com/-TIBwBEsUWx8/AAAAAAAAAAI/AAAAAAAAAAA/Cg9oV1xb-8w/s240-c-k-no-mo-rj-c0xffffff/photo.jpg"
+          },
+          "high": {
+            "url": "https://yt3.ggpht.com/-TIBwBEsUWx8/AAAAAAAAAAI/AAAAAAAAAAA/Cg9oV1xb-8w/s800-c-k-no-mo-rj-c0xffffff/photo.jpg"
+          }
+        },
+        "channelTitle": "WiseCrack Studios",
+        "liveBroadcastContent": "none",
+        "publishTime": "2020-02-14T18:36:10Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "8XxKB0pYxoSgCAofDtbV71Q_rtU",
+      "id": {
+        "kind": "youtube#channel",
+        "channelId": "UCcAxvygX5HBYhfVKPW50JMg"
+      },
+      "snippet": {
+        "publishedAt": "2018-10-06T14:09:58Z",
+        "channelId": "UCcAxvygX5HBYhfVKPW50JMg",
+        "title": "Wisecrack nation",
+        "description": "This channel is for all the nerds, geeks, gamers, and etc. No matter what you're affiliated with you're always welcome here to laugh at our videos, suggest what ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://yt3.ggpht.com/-ECiJYxStDLw/AAAAAAAAAAI/AAAAAAAAAAA/ktvgdCzmRFU/s88-c-k-no-mo-rj-c0xffffff/photo.jpg"
+          },
+          "medium": {
+            "url": "https://yt3.ggpht.com/-ECiJYxStDLw/AAAAAAAAAAI/AAAAAAAAAAA/ktvgdCzmRFU/s240-c-k-no-mo-rj-c0xffffff/photo.jpg"
+          },
+          "high": {
+            "url": "https://yt3.ggpht.com/-ECiJYxStDLw/AAAAAAAAAAI/AAAAAAAAAAA/ktvgdCzmRFU/s800-c-k-no-mo-rj-c0xffffff/photo.jpg"
+          }
+        },
+        "channelTitle": "Wisecrack nation",
+        "liveBroadcastContent": "none",
+        "publishTime": "2018-10-06T14:09:58Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "oXAEnijsWZVkk9xP5jE5XbOyMsw",
+      "id": {
+        "kind": "youtube#channel",
+        "channelId": "UCJmSahdhBpLxGPkHxKWQV_w"
+      },
+      "snippet": {
+        "publishedAt": "2014-12-17T10:58:37Z",
+        "channelId": "UCJmSahdhBpLxGPkHxKWQV_w",
+        "title": "Wise Crack",
+        "description": "WiseCrack is an online web series observing the lives and opinions of religious young people in the UK. Focusing on current ethical affairs, WiseCrack ...",
+        "thumbnails": {
+          "default": {
+            "url": "https://yt3.ggpht.com/-yBhX_F1u10s/AAAAAAAAAAI/AAAAAAAAAAA/aljgSrG-Z_k/s88-c-k-no-mo-rj-c0xffffff/photo.jpg"
+          },
+          "medium": {
+            "url": "https://yt3.ggpht.com/-yBhX_F1u10s/AAAAAAAAAAI/AAAAAAAAAAA/aljgSrG-Z_k/s240-c-k-no-mo-rj-c0xffffff/photo.jpg"
+          },
+          "high": {
+            "url": "https://yt3.ggpht.com/-yBhX_F1u10s/AAAAAAAAAAI/AAAAAAAAAAA/aljgSrG-Z_k/s800-c-k-no-mo-rj-c0xffffff/photo.jpg"
+          }
+        },
+        "channelTitle": "Wise Crack",
+        "liveBroadcastContent": "none",
+        "publishTime": "2014-12-17T10:58:37Z"
+      }
+    },
+    {
+      "kind": "youtube#searchResult",
+      "etag": "jaWf2mWfJIKQJV-kraWIAjcdbEk",
+      "id": {
+        "kind": "youtube#channel",
+        "channelId": "UCfI87m331wjTvbZX4PPTLKg"
+      },
+      "snippet": {
+        "publishedAt": "2017-06-28T19:56:51Z",
+        "channelId": "UCfI87m331wjTvbZX4PPTLKg",
+        "title": "Wisecrack",
+        "description": "",
+        "thumbnails": {
+          "default": {
+            "url": "https://yt3.ggpht.com/-P3MOC7-ctHE/AAAAAAAAAAI/AAAAAAAAAAA/rFlVO3sy2ew/s88-c-k-no-mo-rj-c0xffffff/photo.jpg"
+          },
+          "medium": {
+            "url": "https://yt3.ggpht.com/-P3MOC7-ctHE/AAAAAAAAAAI/AAAAAAAAAAA/rFlVO3sy2ew/s240-c-k-no-mo-rj-c0xffffff/photo.jpg"
+          },
+          "high": {
+            "url": "https://yt3.ggpht.com/-P3MOC7-ctHE/AAAAAAAAAAI/AAAAAAAAAAA/rFlVO3sy2ew/s800-c-k-no-mo-rj-c0xffffff/photo.jpg"
+          }
+        },
+        "channelTitle": "Wisecrack",
+        "liveBroadcastContent": "upcoming",
+        "publishTime": "2017-06-28T19:56:51Z"
+      }
+    }
+  ]
+}

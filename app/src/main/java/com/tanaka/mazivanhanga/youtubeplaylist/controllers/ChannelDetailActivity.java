@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,9 +17,14 @@ import com.tanaka.mazivanhanga.youtubeplaylist.models.PlaylistResponse;
 import com.tanaka.mazivanhanga.youtubeplaylist.utils.ProgDialog;
 import com.tanaka.mazivanhanga.youtubeplaylist.views.PlaylistListAdapter;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
+import io.reactivex.SingleObserver;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -29,6 +35,7 @@ import static com.tanaka.mazivanhanga.youtubeplaylist.utils.Constants.CHANNEL_NA
 import static com.tanaka.mazivanhanga.youtubeplaylist.utils.Constants.UPLOAD_COUNT;
 
 public class ChannelDetailActivity extends AppCompatActivity {
+    private static final String TAG = ChannelDetailActivity.class.getSimpleName();
     ProgDialog progressDialog;
     RecyclerView recyclerView;
     ArrayList<PlaylistListItem> playlistListItems;
@@ -37,7 +44,14 @@ public class ChannelDetailActivity extends AppCompatActivity {
     String channelId, channelImage;
     int uploadCount;
     private String channelName;
+    @NonNull
+    private Disposable disposable;
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        disposable.dispose();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,29 +95,37 @@ public class ChannelDetailActivity extends AppCompatActivity {
      */
     private void loadData(String channelId) {
         progressDialog.show();
-        Youtube.getInstance().searchForPlayList(channelId, new Callback<PlaylistResponse>() {
+        Youtube.getInstance().searchForPlayList(channelId, getPlaylistConsumer(channelId));
+    }
+
+    @NotNull
+    private SingleObserver<PlaylistResponse> getPlaylistConsumer(String channelId) {
+        return new SingleObserver<PlaylistResponse>() {
             @Override
-            public void onResponse(Call<PlaylistResponse> call, Response<PlaylistResponse> response) {
-                progressDialog.hide();
-                if (response.body() != null) {
-                    ArrayList<PlaylistListItem> listItems = (ArrayList<PlaylistListItem>) response.body().getItems().stream().map((item -> {
-                        String title = item.getSnippet().getTitle();
-                        String url = item.getSnippet() == null || item.getSnippet().getThumbnails() == null || item.getSnippet().getThumbnails().getDefault() == null ? "" : item.getSnippet().getThumbnails().getHigh().getUrl();
-                        Integer itemCount = item.getContentDetails().getItemCount();
-                        String playlistId = item.getId();
-                        return new PlaylistListItem(title, url, itemCount, playlistId);
-                    })).collect(Collectors.toList());
-                    String channelPlaylistId = channelId.replaceAll("UC", "UU");
-                    listItems.add(0, new PlaylistListItem(channelName + " Uploads", channelImage, uploadCount, channelPlaylistId));
-                    new Handler(Looper.getMainLooper()).post(() -> adapter.add(listItems));
-                    Log.i("NETWORK", "Success: " + call);
-                }
+            public void onSubscribe(Disposable d) {
+                disposable = d;
             }
 
             @Override
-            public void onFailure(Call<PlaylistResponse> call, Throwable t) {
-                Log.e("Error", t.toString());
+            public void onSuccess(PlaylistResponse playlistResponse) {
+                progressDialog.hide();
+                ArrayList<PlaylistListItem> listItems = (ArrayList<PlaylistListItem>) playlistResponse.getItems().stream().map((item -> {
+                    String title = item.getSnippet().getTitle();
+                    String url = item.getSnippet() == null || item.getSnippet().getThumbnails() == null || item.getSnippet().getThumbnails().getDefault() == null ? "" : item.getSnippet().getThumbnails().getHigh().getUrl();
+                    Integer itemCount = item.getContentDetails().getItemCount();
+                    String playlistId = item.getId();
+                    return new PlaylistListItem(title, url, itemCount, playlistId);
+                })).collect(Collectors.toList());
+                String channelPlaylistId = channelId.replaceAll("UC", "UU");
+                listItems.add(0, new PlaylistListItem(channelName + " Uploads", channelImage, uploadCount, channelPlaylistId));
+                new Handler(Looper.getMainLooper()).post(() -> adapter.add(listItems));
+                Log.i("NETWORK", "Success: ");
             }
-        });
+
+            @Override
+            public void onError(Throwable e) {
+                Log.e(TAG, "onError: " + e.getMessage());
+            }
+        };
     }
 }

@@ -4,8 +4,25 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
+import java.util.Objects;
 
 public class PlaylistResponse {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PlaylistResponse that = (PlaylistResponse) o;
+        return Objects.equals(kind, that.kind) &&
+                Objects.equals(etag, that.etag) &&
+                Objects.equals(nextPageToken, that.nextPageToken) &&
+                Objects.equals(pageInfo, that.pageInfo) &&
+                Objects.equals(items, that.items);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(kind, etag, nextPageToken, pageInfo, items);
+    }
 
     @SerializedName("kind")
     @Expose
@@ -65,6 +82,18 @@ public class PlaylistResponse {
 
 
     public class ContentDetails {
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            ContentDetails that = (ContentDetails) o;
+            return Objects.equals(itemCount, that.itemCount);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(itemCount);
+        }
 
         @SerializedName("itemCount")
         @Expose
@@ -82,6 +111,20 @@ public class PlaylistResponse {
 
 
     public class Default {
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Default aDefault = (Default) o;
+            return Objects.equals(url, aDefault.url) &&
+                    Objects.equals(width, aDefault.width) &&
+                    Objects.equals(height, aDefault.height);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(url, width, height);
+        }
 
         @SerializedName("url")
         @Expose
@@ -121,6 +164,20 @@ public class PlaylistResponse {
 
 
     public class High {
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            High high = (High) o;
+            return Objects.equals(url, high.url) &&
+                    Objects.equals(width, high.width) &&
+                    Objects.equals(height, high.height);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(url, width, height);
+        }
 
         @SerializedName("url")
         @Expose
@@ -160,6 +217,22 @@ public class PlaylistResponse {
 
 
     public class Item {
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Item item = (Item) o;
+            return Objects.equals(kind, item.kind) &&
+                    Objects.equals(etag, item.etag) &&
+                    Objects.equals(id, item.id) &&
+                    Objects.equals(snippet, item.snippet) &&
+                    Objects.equals(contentDetails, item.contentDetails);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(kind, etag, id, snippet, contentDetails);
+        }
 
         @SerializedName("kind")
         @Expose
@@ -220,6 +293,19 @@ public class PlaylistResponse {
     }
 
     public class Localized {
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Localized localized = (Localized) o;
+            return Objects.equals(title, localized.title) &&
+                    Objects.equals(description, localized.description);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(title, description);
+        }
 
         @SerializedName("title")
         @Expose
@@ -247,6 +333,20 @@ public class PlaylistResponse {
     }
 
     public class Medium {
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Medium medium = (Medium) o;
+            return Objects.equals(url, medium.url) &&
+                    Objects.equals(width, medium.width) &&
+                    Objects.equals(height, medium.height);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(url, width, height);
+        }
 
         @SerializedName("url")
         @Expose
@@ -286,6 +386,19 @@ public class PlaylistResponse {
 
 
     public class PageInfo {
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            PageInfo pageInfo = (PageInfo) o;
+            return Objects.equals(totalResults, pageInfo.totalResults) &&
+                    Objects.equals(resultsPerPage, pageInfo.resultsPerPage);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(totalResults, resultsPerPage);
+        }
 
         @SerializedName("totalResults")
         @Expose
@@ -314,6 +427,24 @@ public class PlaylistResponse {
 
 
     public class Snippet {
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Snippet snippet = (Snippet) o;
+            return Objects.equals(publishedAt, snippet.publishedAt) &&
+                    Objects.equals(channelId, snippet.channelId) &&
+                    Objects.equals(title, snippet.title) &&
+                    Objects.equals(description, snippet.description) &&
+                    Objects.equals(thumbnails, snippet.thumbnails) &&
+                    Objects.equals(channelTitle, snippet.channelTitle) &&
+                    Objects.equals(localized, snippet.localized);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(publishedAt, channelId, title, description, thumbnails, channelTitle, localized);
+        }
 
         @SerializedName("publishedAt")
         @Expose
@@ -397,6 +528,20 @@ public class PlaylistResponse {
 
 
     public class Thumbnails {
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Thumbnails that = (Thumbnails) o;
+            return Objects.equals(_default, that._default) &&
+                    Objects.equals(medium, that.medium) &&
+                    Objects.equals(high, that.high);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(_default, medium, high);
+        }
 
         @SerializedName("default")
         @Expose

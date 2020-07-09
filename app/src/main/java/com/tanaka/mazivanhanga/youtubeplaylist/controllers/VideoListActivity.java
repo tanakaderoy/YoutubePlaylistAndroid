@@ -10,6 +10,7 @@ import android.os.Looper;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -27,6 +28,9 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
+import io.reactivex.SingleObserver;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.internal.observers.ConsumerSingleObserver;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -36,12 +40,15 @@ import static com.tanaka.mazivanhanga.youtubeplaylist.utils.Constants.PLAYLIST_N
 import static com.tanaka.mazivanhanga.youtubeplaylist.utils.Constants.SCROLL_TO;
 
 public class VideoListActivity extends AppCompatActivity {
+    private static final String TAG = VideoListActivity.class.getSimpleName();
     ProgDialog progressDialog;
     RecyclerView recyclerView;
     ArrayList<VideoListItem> videoListItems;
     VideoListAdapter adapter;
     RecyclerView.LayoutManager layoutManager;
     String playlistId, playlistName;
+    @NonNull
+    private Disposable disposable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +58,13 @@ public class VideoListActivity extends AppCompatActivity {
         setUpViews();
         loadData();
         LocalBroadcastManager.getInstance(this).registerReceiver(messageReceiver, new IntentFilter(SCROLL_TO));
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(messageReceiver);
+        disposable.dispose();
     }
 
     private BroadcastReceiver messageReceiver = new BroadcastReceiver() {
@@ -64,11 +78,6 @@ public class VideoListActivity extends AppCompatActivity {
         }
     };
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        LocalBroadcastManager.getInstance(this).unregisterReceiver(messageReceiver);
-    }
 
     private void setUpViews() {
         progressDialog = new ProgDialog(this);
@@ -91,11 +100,21 @@ public class VideoListActivity extends AppCompatActivity {
 
     private void loadData() {
         progressDialog.show();
-        Youtube.getInstance().searchForPlaylistItem(playlistId, new Callback<PlaylistItemListResponse>() {
+        Youtube.getInstance().searchForPlaylistItem(playlistId, getPlaylistItemResponseObserver());
+    }
+
+    @NotNull
+    private SingleObserver<PlaylistItemListResponse> getPlaylistItemResponseObserver() {
+        return new SingleObserver<PlaylistItemListResponse>() {
             @Override
-            public void onResponse(@NotNull Call<PlaylistItemListResponse> call, @NotNull Response<PlaylistItemListResponse> response) {
+            public void onSubscribe(Disposable d) {
+                disposable = d;
+            }
+
+            @Override
+            public void onSuccess(PlaylistItemListResponse playlistItemListResponse) {
                 progressDialog.hide();
-                ArrayList<VideoListItem> listItems = (ArrayList<VideoListItem>) response.body().getItems().stream().map((item -> {
+                ArrayList<VideoListItem> listItems = (ArrayList<VideoListItem>) playlistItemListResponse.getItems().stream().map((item -> {
                     String playlistId = item.getSnippet().getPlaylistId();
                     String videoId = item.getContentDetails().getVideoId();
                     String thumbnailUrl = item.getSnippet().getThumbnails().getHigh().getUrl();
@@ -104,15 +123,13 @@ public class VideoListActivity extends AppCompatActivity {
                     return new VideoListItem(videoTitle, description, thumbnailUrl, videoId, playlistId);
                 })).collect(Collectors.toList());
                 new Handler(Looper.getMainLooper()).post(() -> adapter.add(listItems));
-                Log.i("NETWORK", "<-- Success: " + call.request().toString());
-
-
+                Log.i("NETWORK", "<-- Success: ");
             }
 
             @Override
-            public void onFailure(@NotNull Call<PlaylistItemListResponse> call, @NotNull Throwable t) {
-                Log.e("Error", t.toString());
+            public void onError(Throwable e) {
+                Log.e(TAG, "onError: " + e.getMessage());
             }
-        });
+        };
     }
 }

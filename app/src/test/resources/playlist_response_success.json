@@ -1,0 +1,104 @@
+
+{
+  "kind": "youtube#playlistListResponse",
+  "etag": "CogZwaP-QueGG30EABtS-G-Ehyg",
+  "nextPageToken": "CAIQAA",
+  "pageInfo": {
+    "totalResults": 42,
+    "resultsPerPage": 2
+  },
+  "items": [
+    {
+      "kind": "youtube#playlist",
+      "etag": "Oilyoxlv_uf5IukXG64MA82sF_w",
+      "id": "PLghL9V9QTN0hGSNeu-cWxph7BVxZ_9ZXA",
+      "snippet": {
+        "publishedAt": "2020-04-24T19:54:50Z",
+        "channelId": "UC6-ymYjG0SU0jUWnWh9ZzEQ",
+        "title": "For the Film Buffs",
+        "description": "For the Film Buffs - our best videos on the movies you love.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/6UcQxHYda54/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/6UcQxHYda54/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/6UcQxHYda54/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/6UcQxHYda54/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/6UcQxHYda54/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Wisecrack",
+        "localized": {
+          "title": "For the Film Buffs",
+          "description": "For the Film Buffs - our best videos on the movies you love."
+        }
+      },
+      "contentDetails": {
+        "itemCount": 12
+      }
+    },
+    {
+      "kind": "youtube#playlist",
+      "etag": "u7E6eKyHTlSFH7wG60NFYRcAP5I",
+      "id": "PLghL9V9QTN0hcOSwWXdIvayYMvQpiti7v",
+      "snippet": {
+        "publishedAt": "2020-04-24T18:48:49Z",
+        "channelId": "UC6-ymYjG0SU0jUWnWh9ZzEQ",
+        "title": "The Best of Wisecrack",
+        "description": "The best of Wisecrack - all in one place!",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/_Lngf3J8vN4/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/_Lngf3J8vN4/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/_Lngf3J8vN4/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/_Lngf3J8vN4/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/_Lngf3J8vN4/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Wisecrack",
+        "localized": {
+          "title": "The Best of Wisecrack",
+          "description": "The best of Wisecrack - all in one place!"
+        }
+      },
+      "contentDetails": {
+        "itemCount": 13
+      }
+    }
+  ]
+}

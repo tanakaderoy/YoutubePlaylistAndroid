@@ -7,10 +7,8 @@ import static com.tanaka.mazivanhanga.youtubeplaylist.utils.Constants.LOADING;
 
 public class ProgDialog {
     private ProgressDialog progressDialog;
-    private Context context;
 
     public ProgDialog(Context context) {
-        this.context = context;
         progressDialog = new ProgressDialog(context);
         progressDialog.setMessage(LOADING);
     }
